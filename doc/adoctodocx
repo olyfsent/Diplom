@@ -7,4 +7,6 @@
 #установка pandoc в Windows https://github.com/jgm/pandoc/releases/latest
 
 INPUT_ADOC=$1
-asciidoctor --backend docbook --out-file - $INPUT_ADOC.adoc|pandoc --from docbook --to docx --output $INPUT_ADOC.docx
+asciidoctor --backend docbook -o$INPUT_ADOC.adoc|pandoc --from docbook --to docx --output $INPUT_ADOC.docx
+asciidoctor -s -C -a toc -o$INPUT_ADOC.html $INPUT_ADOC.adoc
+asciidoctor-pdf -a toc -o$INPUT_ADOC.pdf $INPUT_ADOC.adoc
